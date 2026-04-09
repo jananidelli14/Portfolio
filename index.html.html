@@ -299,7 +299,7 @@
         }
 
         .hero-image-wrap {
-            width: 280px;
+            width: 300px;
             height: 350px;
             border-radius: 12px;
             overflow: hidden;
@@ -310,7 +310,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
+            padding: 0;
+            flex-shrink: 0;
         }
 
         .hero-image-wrap img {
@@ -319,6 +320,7 @@
             object-fit: cover;
             object-position: center;
             border-radius: 10px;
+            display: block;
         }
 
         /* SECTION HEADER */
@@ -504,7 +506,7 @@
 
         .project-image-container {
             position: relative;
-            height: 260px;
+            height: 280px;
             background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
             overflow: hidden;
             cursor: pointer;
@@ -512,7 +514,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
+            padding: 0;
         }
 
         .project-image-container img {
@@ -521,6 +523,7 @@
             object-fit: contain;
             object-position: center;
             transition: transform 0.4s ease;
+            padding: 20px;
         }
 
         .project-image-placeholder {
@@ -675,7 +678,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.75);
             z-index: 1000;
             align-items: center;
             justify-content: center;
@@ -697,10 +700,11 @@
             background: var(--white);
             border-radius: 16px;
             max-width: 90vw;
-            max-height: 90vh;
+            max-height: 85vh;
             overflow: auto;
             position: relative;
             animation: slideUp 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         @keyframes slideUp {
@@ -718,31 +722,35 @@
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 16px;
+            border-radius: 12px;
+            object-fit: contain;
         }
 
         .modal-close {
             position: absolute;
             top: 16px;
             right: 16px;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             background: rgba(0, 0, 0, 0.7);
             border: none;
             border-radius: 50%;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
             z-index: 1001;
+            font-weight: 300;
+            padding: 0;
+            line-height: 1;
         }
 
         .modal-close:hover {
             background: rgba(0, 0, 0, 0.9);
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
 
         /* EXPERIENCE */
@@ -976,9 +984,9 @@
 
         /* CONTACT FORM */
         #contact {
-            background: linear-gradient(135deg, #1a1f35 0%, #0f1419 100%);
+            background: var(--bg-secondary);
             padding: 100px 56px;
-            color: #ffffff;
+            color: var(--text-primary);
         }
 
         .contact-header {
@@ -1020,10 +1028,10 @@
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             padding: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--white);
+            border: 1px solid var(--border);
             border-radius: 16px;
-            backdrop-filter: blur(25px);
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
         }
 
         .form-group {
@@ -1034,7 +1042,7 @@
             display: block;
             font-size: 0.8rem;
             font-weight: 700;
-            color: #7a8299;
+            color: var(--primary);
             margin-bottom: 10px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -1044,10 +1052,10 @@
         .form-textarea {
             width: 100%;
             padding: 12px 16px;
-            background: rgba(31, 41, 81, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
             border-radius: 8px;
-            color: #ffffff;
+            color: var(--text-primary);
             font-family: 'Times New Roman', Times, serif;
             font-size: 0.95rem;
             outline: none;
@@ -1056,14 +1064,14 @@
 
         .form-input::placeholder,
         .form-textarea::placeholder {
-            color: #7a8299;
+            color: var(--text-muted);
         }
 
         .form-input:focus,
         .form-textarea:focus {
-            border-color: #00d4ff;
-            background: rgba(31, 41, 81, 0.8);
-            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+            border-color: var(--primary);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
         .form-textarea {
@@ -1075,8 +1083,8 @@
         .form-submit {
             width: 100%;
             padding: 12px 24px;
-            background: linear-gradient(135deg, #00d4ff 0%, #0099dd 100%);
-            color: #000;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
             border: none;
             border-radius: 8px;
             font-size: 0.95rem;
@@ -1088,7 +1096,7 @@
 
         .form-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
         }
 
         .form-submit:active {
@@ -1174,7 +1182,7 @@
             width: 48px;
             height: 48px;
             border-radius: 12px;
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(37, 99, 235, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1191,7 +1199,7 @@
         .contact-info-label {
             font-size: 0.75rem;
             font-weight: 700;
-            color: #7a8299;
+            color: var(--primary);
             letter-spacing: 0.1em;
             text-transform: uppercase;
         }
@@ -1199,7 +1207,7 @@
         .contact-info-value {
             font-size: 0.95rem;
             font-weight: 600;
-            color: #ffffff;
+            color: var(--text-primary);
         }
 
         .contact-social {
@@ -1207,37 +1215,37 @@
             gap: 12px;
             margin-top: 24px;
             padding-top: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--border);
         }
 
         .contact-social-link {
             width: 40px;
             height: 40px;
             border-radius: 8px;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
             transition: all 0.3s ease;
             text-decoration: none;
-            color: #00d4ff;
+            color: var(--primary);
         }
 
         .contact-social-link:hover {
-            background: #00d4ff;
-            color: #000;
-            box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
         .availability-banner {
             padding: 16px;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
             border-radius: 8px;
             text-align: center;
-            color: #00d4ff;
+            color: var(--primary);
             font-weight: 600;
             cursor: default;
             margin-top: 24px;
@@ -1250,12 +1258,14 @@
             padding: 32px 56px;
             text-align: center;
             border-top: 1px solid var(--border);
+            font-family: 'Times New Roman', Times, serif;
         }
 
         footer p {
             font-size: 0.85rem;
             margin: 0;
             opacity: 0.9;
+            font-weight: 500;
         }
 
         /* ANIMATIONS */
@@ -1301,7 +1311,8 @@
             }
 
             .hero-right {
-                display: none;
+                display: flex;
+                justify-content: center;
             }
 
             .section {
@@ -1325,8 +1336,6 @@
             }
 
             .contact-form-container {
-
-
                 padding: 24px;
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1363,6 +1372,11 @@
             .btn {
                 width: 100%;
                 justify-content: center;
+            }
+
+            .hero-image-wrap {
+                width: 250px;
+                height: 300px;
             }
 
             section {
@@ -1464,6 +1478,11 @@
                 margin-bottom: 24px;
             }
 
+            .hero-image-wrap {
+                width: 200px;
+                height: 250px;
+            }
+
             .section-title {
                 font-size: 1.2rem;
             }
@@ -1486,9 +1505,9 @@
             }
 
             .modal-close {
-                width: 36px;
-                height: 36px;
-                font-size: 1.3rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.4rem;
             }
 
             .contact-links {
@@ -1524,8 +1543,7 @@
         <div class="hero-left">
             <div class="hero-tagline">Available for opportunities</div>
             <h1 class="hero-title">Building <span>intelligent systems</span> that solve real problems</h1>
-            <p class="hero-description">AI Engineer & Product Builder. Turning complex data and ML into products that work in the real world — from clinical decision support systems to AI-powered mobile apps.</p>
-            <div class="hero-buttons">
+            <p class="hero-description">Building AI systems that solve real-world problems — not just models, but products that work. From clinical decision support tools to real-time safety apps.
                 <a href="#projects" class="btn btn-primary">Explore Projects</a>
                 <a href="#contact" class="btn btn-secondary">Get in Touch</a>
                 <a href="./resume.pdf" class="btn btn-resume" download>📄 Download Resume</a>
@@ -1551,7 +1569,7 @@
         </div>
         <div class="hero-right">
             <div class="hero-image-wrap">
-                <img src="./images/profile.jpg" alt="Janani D" title="Janani D">
+                <img src="./images/profile.png" alt="Janani D" title="Janani D">
             </div>
         </div>
     </section>
@@ -1643,7 +1661,7 @@
             <!-- Project 1 -->
             <div class="project-card fade-in">
                 <div class="project-image-container" onclick="openModal('project-1')">
-                    <img src="./images/clinical-report.png" alt="Clinical Decision Support System">
+                    <img src="./images/clinical-1.png" alt="Clinical Decision Support System">
                     <div class="project-image-overlay">
                         <div class="image-expand-icon">🔍</div>
                     </div>
@@ -1666,7 +1684,7 @@
             <!-- Project 2 -->
             <div class="project-card fade-in">
                 <div class="project-image-container" onclick="openModal('project-2')">
-                    <img src="./images/safeher-app.png" alt="Smart Tourist Safety App">
+                    <img src="./images/safeher.png" alt="Smart Tourist Safety App">
                     <div class="project-image-overlay">
                         <div class="image-expand-icon">🔍</div>
                     </div>
@@ -1689,7 +1707,7 @@
             <!-- Project 3 -->
             <div class="project-card fade-in">
                 <div class="project-image-container" onclick="openModal('project-3')">
-                    <img src="./images/agriassist-dashboard.png" alt="Smart Farming Platform">
+                    <img src="./images/agriassist.png" alt="Smart Farming Platform">
                     <div class="project-image-overlay">
                         <div class="image-expand-icon">🔍</div>
                     </div>
@@ -1940,20 +1958,47 @@
             observer.observe(el);
         });
 
-        // Modal functions
         function openModal(projectId) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+
+    const images = projectImages[projectId];
+
+    if (Array.isArray(images)) {
+        let index = 0;
+        modalImg.src = images[index];
+
+        modal.onclick = () => {
+            index = (index + 1) % images.length;
+            modalImg.src = images[index];
+        };
+    } else {
+        modalImg.src = images;
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
             
             const projectImages = {
-                'project-1': './images/clinical-report.png',
-                'project-2': './images/safeher-app.png',
-                'project-3': './images/agriassist-dashboard.png'
-            };
+  'project-1': [
+    './images/clinical-1.png',
+    './images/clinical-2.png',
+    './images/clinical-3.png',
+    './images/clinical-4.png',
+    './images/clinical-5.png',
+    './images/clinical-6.png'
+  ],
+  'project-2': ['./images/safeher.png'],
+  'project-3': ['./images/agriassist.png']
+};
 
-            modalImg.src = projectImages[projectId] || '';
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            const imageSrc = projectImages[projectId];
+            if (imageSrc) {
+                modalImg.src = imageSrc;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
         }
 
         function closeModal() {
@@ -1989,8 +2034,15 @@
                 return;
             }
 
-            // Create mailto link
-            const mailtoLink = `mailto:jananidelli14@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Create mailto link with proper encoding
+            const mailtoLink = `mailto:jananidelli14@gmail.com?subject=${encodeURIComponent(`Message from ${name}: ${subject}`)}&body=${encodeURIComponent(`From: ${name}\nEmail: ${email}\nSubject: ${subject}\n\n${message}`)}`;
             window.location.href = mailtoLink;
 
             // Show success message
@@ -2005,6 +2057,18 @@
                 successMsg.classList.remove('show');
             }, 4000);
         }
+
+        // Prevent form submission on Enter in text fields (but allow in textarea)
+        document.addEventListener('DOMContentLoaded', function() {
+            const formInputs = document.querySelectorAll('.form-input');
+            formInputs.forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
